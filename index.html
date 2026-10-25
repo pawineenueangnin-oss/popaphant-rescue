@@ -32,6 +32,9 @@ html,body{margin:0;height:100%;overflow:hidden;background:#2b2140;font-family:Ga
 .green{background:linear-gradient(#8af07a,#2fbf3a);box-shadow:0 5px 0 #11661c}.gold{background:linear-gradient(#ffe27a,#f5b81c);box-shadow:0 5px 0 #9a6400;font-size:17px}
 .small{background:linear-gradient(#9fd8ff,#1f8fe6);box-shadow:0 4px 0 #0b4a8f;font-size:16px;padding:8px}
 #toast{position:fixed;left:50%;top:14%;z-index:5;transform:translateX(-50%);background:rgba(255,255,255,.95);padding:10px 16px;border-radius:16px;font-weight:900;color:#3b2a1a;opacity:0;transition:opacity .3s;pointer-events:none;max-width:80vw;text-align:center}
+.card h2.go{font-size:34px;color:#fff;background:linear-gradient(#ff4d5e,#a3122a);border-radius:12px;padding:4px 14px;text-shadow:0 2px 0 #5a0010;animation:goShake .5s 2}
+.why{font-weight:800;color:#7a1a2a;margin-bottom:4px}
+@keyframes goShake{0%,100%{transform:rotate(0)}25%{transform:rotate(-4deg) scale(1.08)}75%{transform:rotate(4deg)}}
 </style></head><body>
 <canvas id="c"></canvas>
 <div id="hud"><button id="home" aria-label="map">🏠</button><span class="pill" id="lvl"></span><span class="pill" id="mvbox"><span id="mv"></span><span id="mvl"></span></span></div>

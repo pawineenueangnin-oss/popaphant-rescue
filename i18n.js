@@ -29,3 +29,27 @@ const LANG = (()=>{const q=new URLSearchParams(location.search).get('lang');
   for(const c of cands){const l=c.toLowerCase(); if(l.startsWith('tl')) return 'fil'; const b=l.split('-')[0]; if(I18N[b]) return b;}
   return 'en';})();
 function T(k){return (I18N[LANG]&&I18N[LANG][k])||I18N.en[k]||k;}
+// v3 strings: Game Over, rising danger, colour links
+(function(){const X={
+en:["GAME OVER","Too late! The danger reached Somjeed!","Continue – slow the danger (watch ad)","Hurry!! It's coming!","Each bubble colour helps a matching icon in the scene!"],
+th:["เกมโอเวอร์","ช้าไป! อันตรายถึงตัวส้มจี๊ดแล้ว!","เล่นต่อ – ทำให้อันตรายช้าลง (ดูโฆษณา)","เร็วเข้า!! มันมาแล้ว!","สีฟองแต่ละสีช่วยไอคอนสีเดียวกันในฉาก!"],
+zh:["游戏结束","太晚了！危险追上颂吉了！","继续 – 让危险变慢（看广告）","快点！！它来了！","每种颜色的泡泡对应场景里同色的图标！"],
+ja:["ゲームオーバー","間に合わなかった！危険がソムジートに届いた！","つづける – 危険をおそくする（広告を見る）","いそいで！！来てるよ！","バブルの色は、シーンの同じ色のアイコンに効くよ！"],
+ko:["게임 오버","너무 늦었어요! 위험이 솜짓에게 닿았어요!","계속하기 – 위험을 느리게 (광고 보기)","서둘러!! 다가온다!","버블 색깔마다 장면 속 같은 색 아이콘을 도와줘요!"],
+vi:["THUA RỒI","Muộn quá! Nguy hiểm đã tới Somjeed!","Chơi tiếp – làm chậm nguy hiểm (xem quảng cáo)","Nhanh lên!! Nó tới rồi!","Mỗi màu bong bóng giúp biểu tượng cùng màu trong cảnh!"],
+id:["GAME OVER","Terlambat! Bahaya mencapai Somjeed!","Lanjut – perlambat bahaya (tonton iklan)","Cepat!! Dia datang!","Tiap warna gelembung membantu ikon sewarna di adegan!"],
+ms:["PERMAINAN TAMAT","Terlambat! Bahaya sampai ke Somjeed!","Teruskan – perlahankan bahaya (tonton iklan)","Cepat!! Ia datang!","Setiap warna buih membantu ikon sama warna dalam babak!"],
+hi:["गेम ओवर","बहुत देर हो गई! ख़तरा सोमजीड तक पहुँच गया!","जारी रखें – ख़तरा धीमा करें (विज्ञापन देखें)","जल्दी!! वो आ रहा है!","हर रंग का बुलबुला दृश्य में उसी रंग के आइकन की मदद करता है!"],
+es:["FIN DEL JUEGO","¡Demasiado tarde! ¡El peligro alcanzó a Somjeed!","Continuar – frena el peligro (ver anuncio)","¡¡Rápido!! ¡Ya viene!","¡Cada color de burbuja ayuda al icono del mismo color!"],
+pt:["FIM DE JOGO","Tarde demais! O perigo alcançou o Somjeed!","Continuar – desacelerar o perigo (ver anúncio)","Rápido!! Está vindo!","Cada cor de bolha ajuda o ícone da mesma cor na cena!"],
+fr:["PARTIE TERMINÉE","Trop tard ! Le danger a atteint Somjeed !","Continuer – ralentir le danger (voir une pub)","Vite !! Ça arrive !","Chaque couleur de bulle aide l'icône de la même couleur !"],
+de:["GAME OVER","Zu spät! Die Gefahr hat Somjeed erreicht!","Weiter – Gefahr verlangsamen (Werbung ansehen)","Schnell!! Es kommt!","Jede Blasenfarbe hilft dem gleichfarbigen Symbol in der Szene!"],
+it:["GAME OVER","Troppo tardi! Il pericolo ha raggiunto Somjeed!","Continua – rallenta il pericolo (guarda un annuncio)","Presto!! Sta arrivando!","Ogni colore di bolla aiuta l'icona dello stesso colore!"],
+ru:["ИГРА ОКОНЧЕНА","Слишком поздно! Опасность добралась до Сомджида!","Продолжить – замедлить опасность (реклама)","Скорее!! Оно приближается!","Каждый цвет пузыря помогает значку того же цвета!"],
+tr:["OYUN BİTTİ","Çok geç! Tehlike Somjeed'e ulaştı!","Devam – tehlikeyi yavaşlat (reklam izle)","Acele et!! Geliyor!","Her baloncuk rengi sahnedeki aynı renkli simgeye yardım eder!"],
+ar:["انتهت اللعبة","فات الأوان! وصل الخطر إلى سومجيد!","تابع – أبطئ الخطر (شاهد إعلانًا)","أسرع!! إنه قادم!","كل لون فقاعة يساعد الرمز بنفس اللون في المشهد!"],
+fil:["TAPOS NA ANG LARO","Huli na! Naabot ng panganib si Somjeed!","Ituloy – pabagalin ang panganib (manood ng ad)","Bilis!! Paparating na!","Bawat kulay ng bula ay tumutulong sa icon na kapareho ng kulay!"],
+nl:["GAME OVER","Te laat! Het gevaar heeft Somjeed bereikt!","Doorgaan – vertraag het gevaar (bekijk advertentie)","Snel!! Het komt eraan!","Elke bubbelkleur helpt het icoon met dezelfde kleur!"],
+pl:["KONIEC GRY","Za późno! Niebezpieczeństwo dopadło Somjeeda!","Kontynuuj – spowolnij zagrożenie (obejrzyj reklamę)","Szybko!! Nadchodzi!","Każdy kolor bańki pomaga ikonce w tym samym kolorze!"],
+lo:["ເກມຈົບແລ້ວ","ຊ້າໄປ! ອັນຕະລາຍມາຮອດສົ້ມຈີ໊ດແລ້ວ!","ຫຼິ້ນຕໍ່ – ເຮັດໃຫ້ອັນຕະລາຍຊ້າລົງ (ເບິ່ງໂຄສະນາ)","ໄວໆ!! ມັນມາແລ້ວ!","ສີຟອງແຕ່ລະສີຊ່ວຍໄອຄອນສີດຽວກັນໃນສາກ!"]};
+const K=['gameOver','tooLate','cont','qHurry','tipLink'];for(const l in X)if(I18N[l])K.forEach((k,i)=>I18N[l][k]=X[l][i]);})();
