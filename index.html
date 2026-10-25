@@ -1,23 +1,27 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title>Popaphant Rescue</title><meta name="theme-color" content="#7fd3ff"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<title>Pop Paws Panic</title><meta name="theme-color" content="#2b2140"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <style>
 @font-face{font-family:GameFont;src:url(fonts/NotoSansThaiLooped.ttf);font-weight:100 900;unicode-range:U+0E00-0E7F;}
-html,body{margin:0;height:100%;overflow:hidden;background:#7fd3ff;font-family:GameFont,system-ui,sans-serif;-webkit-user-select:none;user-select:none;touch-action:none}
+html,body{margin:0;height:100%;overflow:hidden;background:#2b2140;font-family:GameFont,system-ui,sans-serif;-webkit-user-select:none;user-select:none;touch-action:none}
 #c{display:block;position:fixed;inset:0}
 #hud{position:fixed;top:8px;left:8px;right:8px;display:none;gap:8px;align-items:center;pointer-events:none}
 .pill{background:linear-gradient(#fff,#dfe8f5);border-radius:18px;padding:4px 12px;font-weight:900;color:#3b2a1a;box-shadow:0 3px 0 #9fb2cc,0 6px 10px rgba(0,0,0,.15)}
 #mvbox{margin-left:auto;text-align:center;line-height:1}#mv{font-size:24px;display:block}#mvl{font-size:11px}
 #home{pointer-events:auto;border:0;font-size:20px;width:40px;height:40px;border-radius:50%;background:linear-gradient(#ffe27a,#f5b81c);box-shadow:0 3px 0 #b37a00}
 #map,#pop{position:fixed;inset:0;display:none;flex-direction:column;align-items:center}
-#map{overflow-y:auto;background:linear-gradient(#7fd3ff,#bff0e0 50%,#f9d9a8);touch-action:pan-y}
-.title{text-align:center;margin:18px 10px 6px}.logo{font-size:40px;font-weight:900;color:#ffc531;-webkit-text-stroke:2px #7a3e00;text-shadow:0 4px 0 #7a3e00,0 8px 14px rgba(0,0,0,.25);line-height:.95}.logo small{font-size:28px;color:#6ec8ff;-webkit-text-stroke:2px #0b4a8f;text-shadow:0 3px 0 #0b4a8f}
-.tag{margin-top:10px;font-weight:800;color:#3b2a1a;font-size:16px}
+#map{overflow-y:auto;background:radial-gradient(circle at 50% 20%,#5a3a8a,#2b2140 60%,#140d22);touch-action:pan-y}
+.title{text-align:center;margin:18px 10px 6px}.logo{font-size:40px;font-weight:900;color:#ffc531;-webkit-text-stroke:2px #7a3e00;text-shadow:0 4px 0 #7a3e00,0 8px 14px rgba(0,0,0,.25);line-height:.95}.logo small{font-size:34px;color:#ff9a2e;-webkit-text-stroke:2px #7a2e00;text-shadow:0 3px 0 #7a2e00}
+#mcat{width:120px;height:75px;display:block;margin:0 auto}
+.node.boss{background:radial-gradient(circle at 35% 30%,#d39bff,#9b4ff0 60%,#4e1590);box-shadow:0 5px 0 #2e0a5c,0 0 18px #b77cff}
+.quip{font-weight:800;color:#7a3a06;margin:2px 0 6px;font-size:15px}
+#mvbox.low{background:linear-gradient(#ffb3b3,#ff6b7a);animation:bob .5s infinite}
+.tag{margin-top:10px;font-weight:800;color:#ffe9c2;font-size:16px}
 .path{width:100%;max-width:420px;padding:10px 0 20px}
-.node{display:block;width:66px;height:66px;border-radius:50%;border:0;font:900 26px GameFont,system-ui;color:#fff;margin:6px 0;position:relative;background:radial-gradient(circle at 35% 30%,#ffe27a,#f5b81c 60%,#b37a00);box-shadow:0 5px 0 #8a5a00,0 10px 14px rgba(0,0,0,.2);text-shadow:0 2px 0 #7a3e00}
+.node{display:block;width:66px;height:66px;border-radius:50%;border:0;font:900 26px GameFont,system-ui;color:#fff;margin:16px 0;position:relative;background:radial-gradient(circle at 35% 30%,#ffe27a,#f5b81c 60%,#b37a00);box-shadow:0 5px 0 #8a5a00,0 10px 14px rgba(0,0,0,.2);text-shadow:0 2px 0 #7a3e00}
 .node.lock{background:radial-gradient(circle at 35% 30%,#e6ecf5,#9fb2cc 70%);box-shadow:0 5px 0 #6a7f9e;font-size:22px}
 .node.cur{animation:bob 1.2s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-6px) scale(1.06)}}
 .ns{position:absolute;bottom:-14px;left:0;right:0;font-size:14px;color:#ffc531;-webkit-text-stroke:1px #7a3e00}
-.foot{font-weight:800;color:#6e4224;padding:10px 0 30px}.snd{border:0;background:#fff;border-radius:12px;font-size:18px}
+.foot{font-weight:800;color:#d9c2ff;padding:10px 0 30px}.snd{border:0;background:#fff;border-radius:12px;font-size:18px}
 #pop{justify-content:center;background:rgba(20,30,50,.45)}
 .card{background:linear-gradient(#fffdf5,#ffe9c2);border-radius:26px;padding:18px 22px;width:min(300px,84vw);text-align:center;box-shadow:0 8px 0 #c98a3b,0 20px 40px rgba(0,0,0,.3);animation:pin .35s cubic-bezier(.3,1.6,.6,1)}
 @keyframes pin{from{transform:scale(.5);opacity:0}}
