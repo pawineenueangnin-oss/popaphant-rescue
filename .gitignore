@@ -5,3 +5,4 @@ package*.json
 _review/
 _dbg.js
 _shot.js
+_scene.js
